@@ -8,8 +8,8 @@ public class AnnotationApp {
 		ClassPathXmlApplicationContext applicationContext =
 				new ClassPathXmlApplicationContext("applicationContext.xml");
 		
-		Coach coach = applicationContext.getBean("tennisCoach",Coach.class);
-		System.out.println(coach.getDailyWorkOut());
-		System.out.println(coach.getDailyFortune());
+		Coach coach1 = applicationContext.getBean("tennisCoach",Coach.class);
+		Coach coach2 = applicationContext.getBean("tennisCoach",Coach.class);
+		System.out.println("Same object? "+(coach1==coach2));
 	}
 }

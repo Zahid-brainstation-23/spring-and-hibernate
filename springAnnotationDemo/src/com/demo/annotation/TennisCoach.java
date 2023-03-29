@@ -5,13 +5,9 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class TennisCoach implements Coach{
-	
-	private DailyFortune dailyFortune;
-	
 	@Autowired
-	public void anyName(DailyFortune dailyFortune) {
-		this.dailyFortune = dailyFortune;
-	}
+	private DailyFortune dailyFortune;
+
 
 	@Override
 	public String getDailyWorkOut() {

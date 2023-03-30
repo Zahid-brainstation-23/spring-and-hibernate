@@ -7,9 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1> Hello world</h1>
-	<br>
-	<a href="hellowForm">Open Hellow world form</a>
-	
+<form action ="hellow" method="get">
+ <input type="text" name="name">
+ <input type="submit">
+</form>
+
 </body>
 </html>

@@ -7,9 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1> Hello world</h1>
-	<br>
-	<a href="hellowForm">Open Hellow world form</a>
-	
+
+<h1> Hellow ${param.name} </h1>
 </body>
 </html>

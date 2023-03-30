@@ -8,7 +8,16 @@ public class HomeController {
 	
 	@RequestMapping("/")
 	public String home() {
-		System.out.println("HomeController: Passing through...");
 		return "home";
+	}
+	
+	@RequestMapping("/hellowForm")
+	public String hellowForm() {
+		return "hellowForm";
+	}
+	
+	@RequestMapping("/hellow")
+	public String hello() {
+		return "hellow";
 	}
 }

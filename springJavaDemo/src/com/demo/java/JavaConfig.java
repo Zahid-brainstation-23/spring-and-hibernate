@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @ComponentScan("com.demo.annotation")
-public class JavaConifg {
+public class JavaConfig {
 	@Bean
 	public DailyFortune dailyFortune() {
 		return new HappyDailyfortune();

@@ -1,6 +1,10 @@
 package com.mvc.demo;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.core.env.AbstractEnvironment;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -17,7 +21,10 @@ public class HomeController {
 	}
 	
 	@RequestMapping("/hellow")
-	public String hello() {
+	public String hello(HttpServletRequest request,Model model) {
+		String name = request.getParameter("name");
+		name = name.toUpperCase();
+		model.addAttribute("msg", name);
 		return "hellow";
 	}
 }

@@ -8,6 +8,6 @@
 </head>
 <body>
 
-<h1> Hellow ${param.name} </h1>
+<h1> Hellow ${msg} </h1>
 </body>
 </html>

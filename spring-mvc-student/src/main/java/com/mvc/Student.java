@@ -1,10 +1,20 @@
 package com.mvc;
 
+import java.util.HashMap;
+
 public class Student {
 	private String firstName;
 	private String lastName;
 	private String country;
-
+	private HashMap<String, String> countryList;
+	Student(){
+		countryList = new HashMap<String, String>();
+		countryList.put("Bangladesh", "Bangladesh");
+		countryList.put("India", "India");
+		countryList.put("Italy", "Italy");
+		countryList.put("USA", "USA");
+		
+	}
 	public String getFirstName() {
 		return firstName;
 	}
@@ -28,5 +38,9 @@ public class Student {
 	public void setCountry(String country) {
 		this.country = country;
 	}
+	public HashMap<String, String> getCountryList() {
+		return countryList;
+	}
 
+	
 }

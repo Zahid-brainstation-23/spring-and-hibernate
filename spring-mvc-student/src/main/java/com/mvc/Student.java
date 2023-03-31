@@ -7,6 +7,7 @@ public class Student {
 	private String lastName;
 	private String country;
 	private HashMap<String, String> countryList;
+	private String favoriteLanguage;
 	Student(){
 		countryList = new HashMap<String, String>();
 		countryList.put("Bangladesh", "Bangladesh");
@@ -41,6 +42,14 @@ public class Student {
 	public HashMap<String, String> getCountryList() {
 		return countryList;
 	}
+	public String getFavoriteLanguage() {
+		return favoriteLanguage;
+	}
+	public void setFavoriteLanguage(String favoriteLanguage) {
+		this.favoriteLanguage = favoriteLanguage;
+	}
+	
+	
 
 	
 }

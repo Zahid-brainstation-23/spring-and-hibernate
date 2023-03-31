@@ -12,5 +12,7 @@
 	Last Name: ${student.lastName}
 	<br/><br/>
 	country: ${student.country} 
+	<br/><br/>
+	favoriteLanguage: ${student.favoriteLanguage} 
 </body>
 </html>

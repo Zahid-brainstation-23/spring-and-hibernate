@@ -21,6 +21,10 @@
 		<form:errors path="lastName" cssClass="error" />
 		<br />
 		<br />
+	Age: <form:input path="age" />
+		<form:errors path="age" cssClass="error" />
+		<br />
+		<br />
 	Country: 
 	<form:select path="country">
 			<form:options items="${student.countryList}" />

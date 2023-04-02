@@ -3,6 +3,8 @@ package com.mvc;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -15,6 +17,10 @@ public class Student {
 	@NotNull(message = "is required")
 	@Size(min=1,message = "is required")
 	private String lastName;
+	
+	@Min(value = 5,message="Age must be greater than or equal to 5")
+	@Max(value = 30 ,message = "Age must be less than or equal to 30")
+	private int age;
 	
 	private String country;
 	private HashMap<String, String> countryList;
@@ -65,6 +71,12 @@ public class Student {
 	}
 	public void setOperatingSystems(ArrayList<String> operatingSystems) {
 		this.operatingSystems = operatingSystems;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
 	}
 	
 	

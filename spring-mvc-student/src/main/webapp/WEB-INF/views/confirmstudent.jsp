@@ -12,6 +12,8 @@
 	<br/><br/>
 	Last Name: ${student.lastName}
 	<br/><br/>
+	Age: ${student.age}
+	<br/><br/>
 	country: ${student.country} 
 	<br/><br/>
 	favoriteLanguage: ${student.favoriteLanguage}

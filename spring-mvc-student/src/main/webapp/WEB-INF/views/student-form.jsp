@@ -15,6 +15,7 @@
 <body>
 	<form:form action="proccessform" modelAttribute="student">
 	First Name: <form:input path="firstName" />
+	<form:errors path="firstName" cssClass="error" />
 		<br />
 		<br />
 	Last Name: <form:input path="lastName" />

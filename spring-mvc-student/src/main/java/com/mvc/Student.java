@@ -8,19 +8,23 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.mvc.validator.FirstNameValidator;
+
 
 
 
 public class Student {
+	@FirstNameValidator(value = "MD.",message = "First name should start with MD.")
 	private String firstName;
 	
 	@NotNull(message = "is required")
 	@Size(min=1,message = "is required")
 	private String lastName;
 	
+	@NotNull(message = "is required")
 	@Min(value = 5,message="Age must be greater than or equal to 5")
 	@Max(value = 30 ,message = "Age must be less than or equal to 30")
-	private int age;
+	private Integer age;
 	
 	private String country;
 	private HashMap<String, String> countryList;
@@ -72,10 +76,10 @@ public class Student {
 	public void setOperatingSystems(ArrayList<String> operatingSystems) {
 		this.operatingSystems = operatingSystems;
 	}
-	public int getAge() {
+	public Integer getAge() {
 		return age;
 	}
-	public void setAge(int age) {
+	public void setAge(Integer age) {
 		this.age = age;
 	}
 	

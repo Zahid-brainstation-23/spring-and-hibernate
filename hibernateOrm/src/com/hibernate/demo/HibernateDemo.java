@@ -16,9 +16,13 @@ public class HibernateDemo {
 		Session session = factory.getCurrentSession();
 		try {
 			
-			Student student = new Student("zahid", "hasan", "z@gmail.com");
+			Student student1 = new Student("zahid1", "hasan", "z@gmail.com");
+			Student student2 = new Student("zahid2", "hasan", "z@gmail.com");
+			Student student3 = new Student("zahid3", "hasan", "z@gmail.com");
 			session.beginTransaction();
-			session.save(student);
+			session.save(student1);
+			session.save(student2);
+			session.save(student3);
 			session.getTransaction().commit();
 		}finally {
 			factory.close();

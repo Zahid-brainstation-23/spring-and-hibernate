@@ -17,8 +17,8 @@ public class UpdateStudent {
 		try {
 			
 			session.beginTransaction();
-			Student student = session.get(Student.class, 9);
-			student.setEmail("sahin@gmail.com");
+			session.createQuery("update Student set email='zahidhasan@gmail.com'").executeUpdate();
+			
 			session.getTransaction().commit();
 			
 		}finally {

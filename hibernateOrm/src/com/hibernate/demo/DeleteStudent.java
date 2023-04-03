@@ -17,7 +17,8 @@ public class DeleteStudent {
 		try {
 			
 			session.beginTransaction();
-			session.createQuery("delete from Student where firstName='zahid'").executeUpdate();
+			Student student = session.get(Student.class, 8);
+			session.delete(student);
 			
 			session.getTransaction().commit();
 			

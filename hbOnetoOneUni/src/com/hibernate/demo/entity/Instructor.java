@@ -29,7 +29,11 @@ public class Instructor {
 	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="instructor_details_id")
 	private InstructorDetails instructoDetailsId;
-
+	
+	public Instructor() {
+		
+	}
+	
 	public Instructor(String firstName, String lastName, InstructorDetails instructoDetailsId) {
 		super();
 		this.firstName = firstName;

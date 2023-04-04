@@ -8,19 +8,23 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="instructor_details")
+@Table(name = "instructor_details")
 public class InstructorDetails {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id")
+	@Column(name = "id")
 	private int id;
-	
-	@Column(name="youtube_channel")
+
+	@Column(name = "youtube_channel")
 	private String youtubeChannel;
-	
-	@Column(name="hobby")
+
+	@Column(name = "hobby")
 	private String hobby;
+
+	public InstructorDetails() {
+
+	}
 
 	public InstructorDetails(String youtubeChannel, String hobby) {
 		super();
@@ -56,7 +60,5 @@ public class InstructorDetails {
 	public String toString() {
 		return "InstructorDetails [id=" + id + ", youtubeChannel=" + youtubeChannel + ", hobby=" + hobby + "]";
 	}
-	
-	
-	
+
 }

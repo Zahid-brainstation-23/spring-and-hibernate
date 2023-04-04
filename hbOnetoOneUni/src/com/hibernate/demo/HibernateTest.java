@@ -24,9 +24,7 @@ public static void main(String[] args) {
 	try {
 		
 		session.beginTransaction();
-		InstructorDetails insD = new InstructorDetails("youtube.com/programming","Gardening");
-		Instructor ins = new Instructor("John","Doe",insD);
-		session.save(ins);
+		session.delete(session.get(Instructor.class, 2));
 		session.getTransaction().commit();
 	}finally {
 		factory.close();

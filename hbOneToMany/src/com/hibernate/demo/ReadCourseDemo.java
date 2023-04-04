@@ -22,7 +22,7 @@ public class ReadCourseDemo {
 			System.out.println(instructor.getCourses());
 			session.getTransaction().commit();
 		} finally {
-			session.close();
+			
 			factory.close();
 		}
 	}

@@ -7,7 +7,7 @@ import org.hibernate.cfg.Configuration;
 import com.hibernate.demo.entity.Instructor;
 import com.hibernate.demo.entity.InstructorDetails;
 
-public class HibernateTest {
+public class BidirectionalTest {
 	public static void main(String[] args) {
 		SessionFactory factory = new Configuration().configure("hibernate-config.xml")
 				.addAnnotatedClass(Instructor.class).addAnnotatedClass(InstructorDetails.class).buildSessionFactory();
@@ -16,9 +16,12 @@ public class HibernateTest {
 		try {
 
 			session.beginTransaction();
-			session.delete(session.get(Instructor.class, 2));
+			InstructorDetails is= session.get(InstructorDetails.class, 3);
+			System.out.println(is);
+			System.out.println(is.getInstructor());
 			session.getTransaction().commit();
 		} finally {
+			session.close();
 			factory.close();
 		}
 	}

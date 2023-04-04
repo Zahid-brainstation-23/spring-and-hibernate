@@ -1,10 +1,12 @@
 package com.hibernate.demo.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -21,6 +23,9 @@ public class InstructorDetails {
 
 	@Column(name = "hobby")
 	private String hobby;
+	
+	@OneToOne(mappedBy = "instructoDetailsId",cascade =CascadeType.ALL)
+	private Instructor instructor;
 
 	public InstructorDetails() {
 
@@ -56,9 +61,22 @@ public class InstructorDetails {
 		this.hobby = hobby;
 	}
 
+	public Instructor getInstructor() {
+		return instructor;
+	}
+
+	public void setInstructor(Instructor instructor) {
+		this.instructor = instructor;
+	}
+
 	@Override
 	public String toString() {
 		return "InstructorDetails [id=" + id + ", youtubeChannel=" + youtubeChannel + ", hobby=" + hobby + "]";
 	}
+
+	
+
+	
+
 
 }

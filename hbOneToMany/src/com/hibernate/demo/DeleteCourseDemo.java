@@ -8,7 +8,7 @@ import com.hibernate.demo.entity.Course;
 import com.hibernate.demo.entity.Instructor;
 import com.hibernate.demo.entity.InstructorDetails;
 
-public class ReadCourseDemo {
+public class DeleteCourseDemo {
 	public static void main(String[] args) {
 		SessionFactory factory = new Configuration().configure("hibernate-config.xml")
 				.addAnnotatedClass(Instructor.class).addAnnotatedClass(InstructorDetails.class)
@@ -18,8 +18,8 @@ public class ReadCourseDemo {
 		try {
 			
 			session.beginTransaction();
-			Instructor instructor = session.get(Instructor.class, 3);
-			System.out.println(instructor.getCourses());
+			session.delete(session.get(Course.class, 14));
+			
 			session.getTransaction().commit();
 		} finally {
 			session.close();

@@ -17,8 +17,7 @@ public class BidirectionalTest {
 
 			session.beginTransaction();
 			InstructorDetails is= session.get(InstructorDetails.class, 3);
-			System.out.println(is);
-			System.out.println(is.getInstructor());
+			session.delete(is);
 			session.getTransaction().commit();
 		} finally {
 			session.close();

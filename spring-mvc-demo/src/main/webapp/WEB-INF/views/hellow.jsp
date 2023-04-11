@@ -8,6 +8,6 @@
 </head>
 <body>
 
-<h1> Hellow ${msg} </h1>
+<h1> Your msg is ${msg} </h1>
 </body>
 </html>

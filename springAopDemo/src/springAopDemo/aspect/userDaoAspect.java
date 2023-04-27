@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class userDaoAspect {
 	
-	@Before("execution(public void saveUser() )")
+	@Before("execution(public void save*() )")
 	public void beforeSaveMethod() {
 		System.out.println("Before save method from aop");
 	}

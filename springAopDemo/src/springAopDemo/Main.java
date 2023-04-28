@@ -15,7 +15,7 @@ public class Main {
 		userDao.saveUser();
 		
 		CustomerDao customerDao = applicationContext.getBean("customerDao",CustomerDao.class);
-		customerDao.saveUser();
+		customerDao.saveUser("zahid hasan");
 		
 	} 
 }

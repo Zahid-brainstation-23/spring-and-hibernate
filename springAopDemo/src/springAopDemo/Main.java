@@ -10,12 +10,11 @@ public class Main {
 		
 		AnnotationConfigApplicationContext applicationContext = 
 				new AnnotationConfigApplicationContext(Config.class);
-		
-		UserDao userDao = applicationContext.getBean("userDao",UserDao.class);
-		userDao.saveUser();
+
 		
 		CustomerDao customerDao = applicationContext.getBean("customerDao",CustomerDao.class);
-		customerDao.saveUser("zahid hasan");
+		String s = customerDao.saveUser();
+		System.out.println(s);
 		
 	} 
 }

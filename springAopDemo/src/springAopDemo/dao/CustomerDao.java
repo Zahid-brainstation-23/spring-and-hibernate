@@ -5,8 +5,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class CustomerDao {
 
-	public void saveUser(String s) {
-		System.out.println("Save User");
+	public String saveUser() {
+		return "done";
 	}
 
 }

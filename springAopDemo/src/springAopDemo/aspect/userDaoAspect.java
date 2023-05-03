@@ -2,6 +2,7 @@ package springAopDemo.aspect;
 
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -16,9 +17,8 @@ public class userDaoAspect {
 	@Pointcut("execution(String saveUser())")
 	void pointCut() {}
 	
-	@AfterReturning(pointcut ="pointCut()"
-			,returning="result")
-	public void afterSaveMethod(String result) {
-		System.out.println("after return");
+	@After("pointCut()")
+	public void afterSaveMethod() {
+		System.out.println("after");
 	}
 }

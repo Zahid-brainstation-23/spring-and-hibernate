@@ -6,13 +6,14 @@ import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
 
 @Configuration
+
 public class OpenApiConfig {
 
     @Bean
     public OpenAPI usersMicroserviceOpenAPI() {
         return new OpenAPI()
-                .info(new Info().title("Your API Title")
-                        .description("Your API Description")
+                .info(new Info().title("Title")
+                        .description("For Documenting api")
                         .version("1.0"));
     }
 }

@@ -17,11 +17,6 @@ public class StudentController {
 
         this.studentService = studentService;
     }
-    @GetMapping
-    public String Home(){
-        System.out.println("hellow");
-        return "Hellow world";
-    }
 
     @GetMapping({"/{id}"})
     public ResponseEntity<Student> getOne(@PathVariable  UUID id){

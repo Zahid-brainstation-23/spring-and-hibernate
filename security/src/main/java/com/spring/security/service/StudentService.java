@@ -1,11 +1,14 @@
 package com.spring.security.service;
 
+import com.spring.security.Constant.ExceptionMessage;
 import com.spring.security.entity.Student;
 import com.spring.security.repository.StudentRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+
+import java.util.NoSuchElementException;
 import java.util.UUID;
 
 @Service
@@ -17,7 +20,9 @@ public class StudentService {
     }
 
     public ResponseEntity<Student> getOne(UUID id){
-        return ResponseEntity.ok(studentRepository.getOne(id));
+        //.orElseThrow(() -> new NotFoundException(USER_NOT_FOUND)
+        return ResponseEntity.ok(studentRepository.findById(id).orElseThrow(()
+        -> new NoSuchElementException(ExceptionMessage.STUDENT_NOT_FOUND.getMessage())));
     }
 
     public ResponseEntity<Student> createOne(Student student){

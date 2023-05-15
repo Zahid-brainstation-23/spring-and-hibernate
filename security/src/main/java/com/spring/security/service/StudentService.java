@@ -4,9 +4,11 @@ import com.spring.security.entity.Student;
 import com.spring.security.repository.StudentRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 
+@Service
 public class StudentService {
     private StudentRepository studentRepository;
 
@@ -19,6 +21,7 @@ public class StudentService {
     }
 
     public ResponseEntity<Student> createOne(Student student){
+        student.setId(UUID.randomUUID());
         return new ResponseEntity<Student>(studentRepository.save(student), HttpStatus.CREATED);
     }
 

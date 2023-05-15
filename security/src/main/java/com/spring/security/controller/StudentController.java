@@ -8,16 +8,24 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 
+@RestController
 @RequestMapping("/api/student")
 public class StudentController {
     private StudentService studentService;
 
     public StudentController(StudentService studentService) {
+
         this.studentService = studentService;
     }
+    @GetMapping
+    public String Home(){
+        System.out.println("hellow");
+        return "Hellow world";
+    }
 
-    @GetMapping({"{id}"})
+    @GetMapping({"/{id}"})
     public ResponseEntity<Student> getOne(@PathVariable  UUID id){
+        System.out.println("hellow world");
         return studentService.getOne(id);
     }
 

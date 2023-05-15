@@ -10,6 +10,9 @@ import java.util.UUID;
 public class StudentService {
     private StudentRepository studentRepository;
 
+    public StudentService(StudentRepository studentRepository) {
+        this.studentRepository = studentRepository;
+    }
 
     public ResponseEntity<Student> getOne(UUID id){
         return ResponseEntity.ok(studentRepository.getOne(id));

@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.UUID;
 
@@ -20,9 +21,12 @@ public class StudentService {
     }
 
     public ResponseEntity<Student> getOne(UUID id){
-        //.orElseThrow(() -> new NotFoundException(USER_NOT_FOUND)
         return ResponseEntity.ok(studentRepository.findById(id).orElseThrow(()
         -> new NoSuchElementException(ExceptionMessage.STUDENT_NOT_FOUND.getMessage())));
+    }
+
+    public ResponseEntity<List<Student>> getAll(){
+        return ResponseEntity.ok(studentRepository.findAll());
     }
 
     public ResponseEntity<Student> createOne(Student student){

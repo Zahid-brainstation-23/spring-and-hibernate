@@ -25,7 +25,7 @@ public class StudentController {
     }
 
     @Operation(summary="get one student")
-    @GetMapping({"/{id}"})
+    @GetMapping({"{id}"})
     public ResponseEntity<Student> getOne(@PathVariable  UUID id){
         log.info("get student with id={}",id);
         return studentService.getOne(id);
@@ -43,5 +43,26 @@ public class StudentController {
     public ResponseEntity<List<Student>> getAll(){
         log.info("get all students");
         return studentService.getAll();
+    }
+
+    @Operation(summary="Update student")
+    @PutMapping()
+    public ResponseEntity<Student> updateOne(@RequestBody Student student){
+        log.info("update student ");
+        return studentService.updateOne(student);
+    }
+
+    @Operation(summary="Delete student")
+    @DeleteMapping()
+    public ResponseEntity<String> deleteOne(@RequestBody Student student){
+        log.info("delete student ");
+        return studentService.deleteOne(student);
+    }
+
+    @Operation(summary="Delete student by id")
+    @DeleteMapping("{id}")
+    public ResponseEntity<String> deleteOneById(@PathVariable UUID id){
+        log.info("delete student with id={}",id);
+        return studentService.deleteOneById(id);
     }
 }

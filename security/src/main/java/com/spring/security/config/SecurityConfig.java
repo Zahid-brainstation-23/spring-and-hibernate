@@ -14,12 +14,14 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
       http.authorizeHttpRequests(configurer ->
-              configurer.requestMatchers(HttpMethod.GET,"api/student").hasRole("STUDENT")
-                      .requestMatchers(HttpMethod.GET,"api/student/**").hasRole("STUDENT")
-                      .requestMatchers(HttpMethod.POST,"api/student").hasRole("TEACHER")
+              configurer.requestMatchers(HttpMethod.GET,"api/student").hasAnyRole("STUDENT","TEACHER","ADMIN")
+                      .requestMatchers(HttpMethod.GET,"api/student/**").hasAnyRole("STUDENT","TEACHER","ADMIN")
+                      .requestMatchers(HttpMethod.POST,"api/student").hasAnyRole("TEACHER","ADMIN")
                       .requestMatchers(HttpMethod.PUT,"api/student").hasRole("ADMIN")
                       .requestMatchers(HttpMethod.DELETE,"api/student").hasRole("ADMIN")
-                      .requestMatchers(HttpMethod.DELETE,"api/student/**").hasRole("ADMIN"));
+                      .requestMatchers(HttpMethod.DELETE,"api/student/**").hasRole("ADMIN")
+                      .requestMatchers("swagger-ui/**","api-docs/**").permitAll())
+              ;
         http.csrf().disable().httpBasic();;
         return http.build();
     }

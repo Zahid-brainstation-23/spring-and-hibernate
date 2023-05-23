@@ -20,7 +20,8 @@ public class SecurityConfig {
                       .requestMatchers(HttpMethod.PUT,"api/student").hasRole("ADMIN")
                       .requestMatchers(HttpMethod.DELETE,"api/student").hasRole("ADMIN")
                       .requestMatchers(HttpMethod.DELETE,"api/student/**").hasRole("ADMIN")
-                      .requestMatchers("swagger-ui/**","api-docs/**").permitAll())
+                      .requestMatchers("swagger-ui/**").authenticated()
+                      .anyRequest().permitAll())
               ;
         http.csrf().disable().httpBasic();;
         return http.build();

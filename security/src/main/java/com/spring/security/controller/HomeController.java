@@ -1,12 +1,14 @@
 package com.spring.security.controller;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 
-@Controller
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
 public class HomeController {
-    @GetMapping("/")
+    @RequestMapping("/")
     public String homeController(){
-        return "swagger-ui/index.html#/";
+        return "Open s<a href='/swagger-ui/index.html#/' > swagger doc </a>";
     }
 }

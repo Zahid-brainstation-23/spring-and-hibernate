@@ -4,6 +4,9 @@ import com.spring.security.Constant.ExceptionMessage;
 import com.spring.security.entity.Student;
 import com.spring.security.repository.StudentRepository;
 import org.hibernate.sql.Delete;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -26,8 +29,8 @@ public class StudentService {
         -> new NoSuchElementException(ExceptionMessage.STUDENT_NOT_FOUND.getMessage())));
     }
 
-    public ResponseEntity<List<Student>> getAll(){
-        return ResponseEntity.ok(studentRepository.findAll());
+    public ResponseEntity<Page<Student>> getAll(Pageable page){
+        return ResponseEntity.ok(studentRepository.findAll(page));
     }
 
     public ResponseEntity<Student> createOne(Student student){

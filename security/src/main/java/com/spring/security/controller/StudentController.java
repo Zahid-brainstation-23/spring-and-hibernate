@@ -6,6 +6,9 @@ import com.spring.security.service.StudentService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
+import org.springdoc.core.annotations.ParameterObject;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -40,9 +43,9 @@ public class StudentController {
     }
     @Operation(summary="get all student")
     @GetMapping()
-    public ResponseEntity<List<Student>> getAll(){
+    public ResponseEntity<Page<Student>> getAll(@ParameterObject Pageable page){
         log.info("get all students");
-        return studentService.getAll();
+        return studentService.getAll(page);
     }
 
     @Operation(summary="Update student")
